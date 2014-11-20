@@ -1,0 +1,19 @@
+{
+  "name": "restify-bunyan-logger",
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "jshint lib/"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnyFetch/restify-bunyan-logger"
+  },
+  "licence": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  }
+}
