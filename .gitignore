@@ -1,0 +1,9 @@
+node_modules/
+
+# IDE
+*.sublime-*
+
+
+newrelic_agent.log
+.env
+npm-debug.log
