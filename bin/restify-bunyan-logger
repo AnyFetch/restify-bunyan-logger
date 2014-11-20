@@ -629,6 +629,22 @@ function stylizeWithColor(str, color) {
     }
 }
 
+
+function startStylizeWithColor(color) {
+    var codes = colors[color];
+    if (codes) {
+        return '\033[' + codes[0] + 'm';
+    }
+}
+
+function endStylizeWithColor(color) {
+    var codes = colors[color];
+    if (codes) {
+        return '\033[' + codes[1] + 'm';
+    }
+}
+
+
 function stylizeWithoutColor(str, color) {
     return str;
 }
@@ -1027,7 +1043,7 @@ function emitRecord(rec, line, opts, stylize) {
         if (!isValidRecord(rec)) {
             return emit(line + '\n');
         }
-    	require('./loggers/restify')(rec, stylize, emit);
+    	require('./loggers/restify')(rec, startStylizeWithColor, endStylizeWithColor, emit);
     	break;
     default:
         throw new Error('unknown output mode: '+opts.outputMode);
