@@ -1,14 +1,12 @@
 {
   "name": "restify-bunyan-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "scripts": {
     "lint": "jshint lib/"
   },
-  "dependencies": {
-  },
-  "devDependencies": {
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/AnyFetch/restify-bunyan-logger"
