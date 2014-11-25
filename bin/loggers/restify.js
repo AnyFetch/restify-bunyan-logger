@@ -22,5 +22,13 @@ module.exports = function(rec, startStylizeWithColor, endStylizeWithColor, emit)
 
   rec._time = new Date(rec.time);
 
-  emit(compiledTemplate(rec) + "\n");
+  var out;
+  try {
+    out = compiledTemplate(rec);
+  }
+  catch(e) {
+    out = JSON.stringify(rec);
+  }
+
+  emit(out + "\n");
 };
