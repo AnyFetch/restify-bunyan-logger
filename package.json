@@ -2,10 +2,15 @@
   "name": "restify-bunyan-logger",
   "version": "1.0.1",
   "main": "lib/index.js",
+  "bin": {
+    "restify-bunyan-logger": "./bin/restify-bunyan-logger"
+  },
   "scripts": {
     "lint": "jshint lib/"
   },
-  "dependencies": {},
+  "dependencies": {
+    "underscore": "^1.7.0"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
