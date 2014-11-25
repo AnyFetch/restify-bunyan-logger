@@ -49,3 +49,36 @@ This is a dirty hack around the standard bunyan logger, until https://github.com
 ## More...
 This package fits nicely with the default restify bunyan implementation, and will use any custom logger you want.
 You may want to add `server.use(restify.requestLogger());` to get a unique request identifier on each log.
+
+## I'm using express
+I'm quite sad for you. If you want, you can use this simple wrapper to get lbunyan logging on express:
+
+```js
+'use strict';
+var onFinished = require('on-finished');
+var BunyanLogger = require('restify-bunyan-logger');
+var Logger = require('bunyan');
+
+
+var bunyanLogger = new BunyanLogger({
+  custom: function(req, res, route, err, log) {
+    log.req.route = req.route ? req.route.path : null;
+    return log;
+  },
+  logger: new Logger.createLogger(),
+});
+
+
+
+module.exports = function(req, res, next) {
+  req._start = new Date();
+  onFinished(res, function(err) {
+    req.time = function() {
+      return new Date() - req._start;
+    };
+    bunyanLogger(req, res, null, err);
+  });
+
+  next();
+};
+```
