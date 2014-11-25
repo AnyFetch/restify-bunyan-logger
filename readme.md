@@ -30,7 +30,7 @@ server.on('after', restifyBunyanLogger({
   skip: function(req, res) {
     return req.method === "OPTIONS";
   },
-  custom: function(req, res, route, err) {
+  custom: function(req, res, route, err, log) {
     // This will not work when using gzip.
     log.res.length = res.get('Content-Length');
 
