@@ -23,6 +23,7 @@ server.on('after', restifyBunyanLogger());
 
 * `skip`: function to skip some logs. Take as parameters req and res, must return true to skip the logging of this request.
 * `custom`: function to add custom values to the bunyan log. Take as parameters req, res, route, err, log (a pre defined log object). Must return a Javascript object.
+* `logger`: a custom bunyan logger. Will default to req.log if unspecified
 
 ```js
 server.on('after', restifyBunyanLogger({
@@ -35,7 +36,8 @@ server.on('after', restifyBunyanLogger({
 
     // Don't forget to return!
     return log;
-  }
+  },
+  logger: bunyanLogger
 }));
 ```
 
