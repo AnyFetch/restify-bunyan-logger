@@ -39,6 +39,11 @@ server.on('after', restifyBunyanLogger({
 }));
 ```
 
+## CLI usage
+You can pipe your json logs into `bin/restify-bunyan-logger` (or `restify-bunyan-logger` when installed with `npm -g`) to get a nicely formatted one-line view.
+
+This is a dirty hack around the standard bunyan logger, until https://github.com/trentm/node-bunyan/pull/191 is merged.
+
 ## More...
 This package fits nicely with the default restify bunyan implementation, and will use any custom logger you want.
 You may want to add `server.use(restify.requestLogger());` to get a unique request identifier on each log.

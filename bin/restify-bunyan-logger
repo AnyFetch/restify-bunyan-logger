@@ -401,7 +401,7 @@ function parseArgv(argv) {
         help: false,
         color: null,
         paginate: null,
-        outputMode: OM_LONG,
+        outputMode: OM_RESTIFY,
         jsonIndent: 2,
         level: null,
         conditions: null,
