@@ -27,7 +27,7 @@ module.exports = function(rec, startStylizeWithColor, endStylizeWithColor, emit)
     out = compiledTemplate(rec);
   }
   catch(e) {
-    out = JSON.stringify(rec);
+    out = JSON.stringify(rec, null, 2);
   }
 
   emit(out + "\n");
