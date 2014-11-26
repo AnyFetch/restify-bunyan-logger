@@ -71,10 +71,10 @@ var bunyanLogger = new BunyanLogger({
 
 
 module.exports = function(req, res, next) {
-  req._start = new Date();
+  req._startAt = new Date();
   onFinished(res, function(err) {
     req.time = function() {
-      return new Date() - req._start;
+      return req._startAt;
     };
     bunyanLogger(req, res, null, err);
   });
