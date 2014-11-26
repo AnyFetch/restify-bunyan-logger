@@ -14,7 +14,7 @@ var template = "{{ _time.toTimeString().substr(0, 8) }} {{ cS('underline') }}{{ 
 var compiledTemplate = _.template(template);
 
 
-module.exports = function(rec, startStylizeWithColor, endStylizeWithColor, emit) {
+module.exports = function(rec, line, startStylizeWithColor, endStylizeWithColor, emit) {
   // color start function
   rec.cS = startStylizeWithColor;
   // color end function
@@ -27,7 +27,7 @@ module.exports = function(rec, startStylizeWithColor, endStylizeWithColor, emit)
     out = compiledTemplate(rec);
   }
   catch(e) {
-    out = JSON.stringify(rec, null, 2);
+    out = line;
   }
 
   emit(out + "\n");

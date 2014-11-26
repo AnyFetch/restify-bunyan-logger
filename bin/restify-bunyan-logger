@@ -1043,7 +1043,7 @@ function emitRecord(rec, line, opts, stylize) {
         if (!isValidRecord(rec)) {
             return emit(line + '\n');
         }
-    	require('./loggers/restify')(rec, startStylizeWithColor, endStylizeWithColor, emit);
+    	require('./loggers/restify')(rec, line, startStylizeWithColor, endStylizeWithColor, emit);
     	break;
     default:
         throw new Error('unknown output mode: '+opts.outputMode);
