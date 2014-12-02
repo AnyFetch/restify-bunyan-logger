@@ -11,12 +11,24 @@ npm install restify-bunyan-logger
 Use `--save` to add the package to your current package.json.
 
 ## Usage
-Basic usage is one line:
+Basic usage is one line (if you're already using bunyan):
 
 ```js
 var restifyBunyanLogger = require('restify-bunyan-logger');
 server.on('after', restifyBunyanLogger());
 ```
+
+If you're not using bunyan, you'll need to update your server creation too:
+
+```js
+var Logger = require('bunyan');
+var server = restify.createServer({
+  log: new Logger.createLogger({
+    name: "your app name",
+  })
+});
+```
+
 
 ### Parameters
 `restifyBunyanLogger` takes an option parameter. Valid keys are:
