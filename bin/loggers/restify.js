@@ -9,7 +9,7 @@ _.templateSettings = {
 };
 
 
-var template = "{{ _time.toTimeString().substr(0, 8) }} {{ cS('underline') }}{{ name }}{{ cE('underline')}} {{ cS('grey') }}{{ req.method }} {{ req.user || '???' }} {{ req.url }}{{ cE('grey') }} {{ cS(res.status > 500 ? 'red' : res.status > 400 ? 'yellow' : res.status > 300 ? 'cyan' : 'green')}}{{ res.status }}{{ cE('green') }} {{ cS(res.time > 800 ? 'bold': 'grey')}}{{ res.time }}ms{{ cE(res.time > 800 ? 'bold': 'grey') }} {{ cS('underline') }}{{ res.restCode }}{{ cE('underline')}} {{ msg }}";
+var template = "{{ _time.toTimeString().substr(0, 8) }} {{ cS('underline') }}{{ name }}{{ cE('underline')}} {{ cS('grey') }}{{ req.method }} {{ req.user || '???' }} {{ req.url }}{{ cE('grey') }} {{ cS(res.status >= 500 ? 'red' : res.status >= 400 ? 'yellow' : res.status >= 300 ? 'cyan' : 'green')}}{{ res.status }}{{ cE('green') }} {{ cS(res.time > 800 ? 'bold': 'grey')}}{{ res.time }}ms{{ cE(res.time > 800 ? 'bold': 'grey') }} {{ cS('underline') }}{{ res.restCode }}{{ cE('underline')}} {{ msg }}";
 
 var compiledTemplate = _.template(template);
 
